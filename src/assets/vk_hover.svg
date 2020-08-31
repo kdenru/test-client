@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="53px" height="53px" viewBox="0 0 53 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 6</title>
+    <g id="design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="styles" transform="translate(-268.000000, -112.000000)">
+            <g id="Group-10" transform="translate(101.000000, 47.000000)">
+                <g id="social-icons" transform="translate(64.000000, 54.000000)">
+                    <g id="Group-6" transform="translate(103.000000, 11.000000)">
+                        <rect id="contur" fill="#45668e" x="0" y="0" width="53" height="53" rx="26.5"></rect>
+                        <path d="M26.4001088,18.5995391 C22.2239205,13.2662058 18.4691597,12.5710183 15.1358263,16.5139766 C10.1358263,22.4284141 23.0068193,40.6039691 27.3278733,39.5551347 C29.3123515,39.0734493 42.7836072,21.1593662 37.6358263,16.5139766 C33.6358263,12.9043516 29.8905872,13.5995391 26.4001088,18.5995391 Z" id="Path-3" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

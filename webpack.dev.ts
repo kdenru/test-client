@@ -38,6 +38,14 @@ const config: webpack.Configuration = {
         ]
       },
       {
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        options: {
+          publicPath: '/assets/',
+          outputPath: './assets/'
+        }
+      },
+      {
         test: /\.svg$/,
         loader: 'url-loader'
       }
@@ -50,7 +58,7 @@ const config: webpack.Configuration = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
-    }),
+    })
   ],
   devtool: 'inline-source-map',
   devServer: {

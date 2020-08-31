@@ -1,6 +1,36 @@
 @import "../node_modules/reset-css/reset.css"
+@import "assets/fonts/shnobel.css"
+
+*
+  box-sizing border-box
 
 .wrapper
   width 100vw
   height 100vh
+  padding 20px
   background-color #CD718E
+
+  .logo
+    width 32px
+    height 32px
+    display block
+    background url("assets/logo.svg") no-repeat
+
+  .content
+    .title
+      color #fafafa
+      font-size 28px
+      margin-top 30px
+      line-height 32px
+      text-align center
+      font-family Shnobel
+
+@media screen and (min-width: 768px)
+  .wrapper
+    .logo
+      width 140px
+
+@media screen and (min-width: 1024px)
+  .wrapper
+    background #CD718E url("assets/clouds.svg") no-repeat center
+    background-size contain
