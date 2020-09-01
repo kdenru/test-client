@@ -32,35 +32,48 @@ class App extends PureComponent<TProps> {
 
   render() {
     const { user, saveMail, saveShare } = this.props;
+
     return (
       <div className="wrapper">
-        <a
-          target="_blank"
-          className="logo"
-          rel="noreferrer"
-          href="https://aviasales.ru"
-        />
-        <div className="content">
-          <div className="title">Чтобы выиграть путешествие</div>
-          <div
-            className={user && user.shared ? 'block block_disabled' : 'block'}
-          >
-            <div className="header">
-              <div className="number">1</div>
-              <div className="text">Поделись с друзьями:</div>
-            </div>
-            <Share saveShare={saveShare} id={user && user.id} />
+        {user && user.email && user.shared ? (
+          <div className="content final">
+            <div className="title">Путешествие близко!</div>
           </div>
-          <div
-            className={user && user.email ? 'block block_disabled' : 'block'}
-          >
-            <div className="header">
-              <div className="number">2</div>
-              <div className="text">Оставь почту:</div>
+        ) : (
+          <>
+            <a
+              target="_blank"
+              className="logo"
+              rel="noreferrer"
+              href="https://aviasales.ru"
+            />
+            <div className="content">
+              <div className="title">Чтобы выиграть путешествие</div>
+              <div
+                className={
+                  user && user.shared ? 'block block_disabled' : 'block'
+                }
+              >
+                <div className="header">
+                  <div className="number">1</div>
+                  <div className="text">Поделись с друзьями:</div>
+                </div>
+                <Share saveShare={saveShare} id={user && user.id} />
+              </div>
+              <div
+                className={
+                  user && user.email ? 'block block_disabled' : 'block'
+                }
+              >
+                <div className="header">
+                  <div className="number">2</div>
+                  <div className="text">Оставь почту:</div>
+                </div>
+                <Email saveMail={saveMail} id={user && user.id} />
+              </div>
             </div>
-            <Email saveMail={saveMail} id={user && user.id} />
-          </div>
-        </div>
+          </>
+        )}
       </div>
     );
   }
