@@ -38,8 +38,16 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@types/react-redux": "^7.1.9",
+    "@types/redux": "^3.6.0",
+    "@types/redux-devtools-extension": "^2.13.2",
+    "@types/redux-thunk": "^2.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
     "reset-css": "^5.0.1",
     "sharer.js": "^0.4.0",
     "stylus": "^0.54.8"
