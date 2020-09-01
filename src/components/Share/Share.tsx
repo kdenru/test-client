@@ -1,35 +1,46 @@
 import * as React from 'react';
-import 'sharer.js';
+
+import {
+  FacebookShareButton,
+  VKShareButton,
+  TwitterShareButton,
+  OKShareButton
+} from 'react-share';
 
 import './styles.styl';
 
-const Share: React.FunctionComponent = () => {
+import { TSaveShareParams } from '../../store/userReducer';
+
+type TProps = {
+  id: number | null;
+  saveShare: (params: TSaveShareParams) => void;
+};
+
+const Share: React.FunctionComponent<TProps> = ({ saveShare, id }: TProps) => {
+  const afterShare = () => {
+    saveShare({ id });
+  };
+
   return (
     <div className="shareContainer">
-      <div
-        className="share vk"
-        data-sharer="vk"
-        data-title="Выиграй путешествие!"
-        data-url="https://aviasales.ru"
-      />
-      <div
-        className="share fb"
-        data-sharer="facebook"
-        data-title="Выиграй путешествие!"
-        data-url="https://aviasales.ru"
-      />
-      <div
-        className="share tw"
-        data-sharer="twitter"
-        data-title="Выиграй путешествие!"
-        data-url="https://aviasales.ru"
-      />
-      <a
-        className="share ok"
-        data-sharer="okru"
-        data-title="Выиграй путешествие!"
-        data-url="https://aviasales.ru"
-      />
+      <FacebookShareButton
+        url="https://aviasales.ru"
+        onShareWindowClose={afterShare}
+      >
+        <div className="share fb" />
+      </FacebookShareButton>
+      <VKShareButton url="https://aviasales.ru" onShareWindowClose={afterShare}>
+        <div className="share vk" />
+      </VKShareButton>
+      <TwitterShareButton
+        url="https://aviasales.ru"
+        onShareWindowClose={afterShare}
+      >
+        <div className="share tw" />
+      </TwitterShareButton>
+      <OKShareButton url="https://aviasales.ru" onShareWindowClose={afterShare}>
+        <div className="share ok" />
+      </OKShareButton>
     </div>
   );
 };

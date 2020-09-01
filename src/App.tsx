@@ -12,13 +12,16 @@ import {
   TStore,
   loadUser,
   saveMail,
-  TSaveMailParams
+  saveShare,
+  TSaveMailParams,
+  TSaveShareParams
 } from './store/userReducer';
 
 type TProps = {
   user: TUser;
   loadUser: () => void;
   saveMail: (params: TSaveMailParams) => void;
+  saveShare: (params: TSaveShareParams) => void;
 };
 
 class App extends PureComponent<TProps> {
@@ -28,7 +31,7 @@ class App extends PureComponent<TProps> {
   }
 
   render() {
-    const { user, saveMail } = this.props;
+    const { user, saveMail, saveShare } = this.props;
     return (
       <div className="wrapper">
         <a
@@ -46,7 +49,7 @@ class App extends PureComponent<TProps> {
               <div className="number">1</div>
               <div className="text">Поделись с друзьями:</div>
             </div>
-            <Share />
+            <Share saveShare={saveShare} id={user && user.id} />
           </div>
           <div
             className={user && user.email ? 'block block_disabled' : 'block'}
@@ -55,7 +58,7 @@ class App extends PureComponent<TProps> {
               <div className="number">2</div>
               <div className="text">Оставь почту:</div>
             </div>
-            <Email saveMail={saveMail} id={(user && user.id) || null} />
+            <Email saveMail={saveMail} id={user && user.id} />
           </div>
         </div>
       </div>
@@ -69,7 +72,8 @@ const mapStateToProps = (state: TStore) => ({
 
 const mapDispatchToProps = {
   loadUser,
-  saveMail
+  saveMail,
+  saveShare
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
